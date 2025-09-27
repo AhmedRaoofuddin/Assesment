@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Pizza Hut Demo Platform - Complete AWS Infrastructure",
+  "Description": "Pizza Hut Demo Platform - Complete AWS Infrastructure with Budget Alerts",
   "Parameters": {
     "ProjectName": {
       "Type": "String",
@@ -11,6 +11,16 @@
       "Type": "String",
       "Default": "production",
       "AllowedValues": ["production", "staging", "development"]
+    },
+    "BudgetAmount": {
+      "Type": "Number",
+      "Default": 10,
+      "Description": "Monthly budget limit in USD"
+    },
+    "AlertEmail": {
+      "Type": "String",
+      "Default": "alerts@example.com",
+      "Description": "Email for budget alerts"
     }
   },
   "Resources": {
@@ -148,6 +158,53 @@
         ]
       }
     }
+  },
+  "Budget": {
+    "Type": "AWS::Budgets::Budget",
+    "Properties": {
+      "Budget": {
+        "BudgetName": "PizzaHutDemo-MonthlyBudget",
+        "BudgetLimit": {
+          "Amount": {"Ref": "BudgetAmount"},
+          "Unit": "USD"
+        },
+        "TimeUnit": "MONTHLY",
+        "BudgetType": "COST",
+        "CostFilters": {
+          "TagKey": ["Project"],
+          "TagValue": ["Pizza Hut Demo"]
+        }
+      },
+      "NotificationsWithSubscribers": [
+        {
+          "Notification": {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 80
+          },
+          "Subscribers": [
+            {
+              "SubscriptionType": "EMAIL",
+              "Address": {"Ref": "AlertEmail"}
+            }
+          ]
+        },
+        {
+          "Notification": {
+            "NotificationType": "FORECASTED",
+            "ComparisonOperator": "GREATER_THAN", 
+            "Threshold": 100
+          },
+          "Subscribers": [
+            {
+              "SubscriptionType": "EMAIL",
+              "Address": {"Ref": "AlertEmail"}
+            }
+          ]
+        }
+      ]
+    }
+  }
   },
   "Outputs": {
     "S3BucketName": {

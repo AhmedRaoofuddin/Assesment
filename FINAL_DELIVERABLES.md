@@ -5,31 +5,31 @@
 
 ---
 
-## 🌐 PUBLIC URLS (PRODUCTION READY)
+## 🌐 PUBLIC URLS (LIVE DEPLOYMENT)
 
 ### Task 1: Landing Page & Registration + Thank-You Video
-- **Landing Page**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/`
-- **Thank-You Page**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/thank-you`
+- **Landing Page**: `https://main.d27t06595.amplifyapp.com/`
+- **Thank-You Page**: `https://main.d27t06595.amplifyapp.com/thank-you`
 
 ### Task 2: Upload Photo Page  
-- **Upload Page**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/upload`
+- **Upload Page**: `https://main.d27t06595.amplifyapp.com/upload`
 
 ### Task 1: CSV Report (Protected)
-- **CSV Report**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/report.csv?token=ph_demo_2025_secure_token_a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`
+- **CSV Report**: `https://main.d27t06595.amplifyapp.com/report.csv?token=ph_demo_2025_secure_token_27T06595`
 
 ### Task 3: API Documentation & Live API
-- **API Base URL**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/api`
-- **API Documentation**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/api-docs`
+- **API Base URL**: `https://main.d27t06595.amplifyapp.com/api`
+- **API Documentation**: `https://main.d27t06595.amplifyapp.com/api-docs`
 
 **📍 KEY API ENDPOINT**: `POST /api/upload-direct`
-- **Full URL**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/api/upload-direct`
+- **Full URL**: `https://main.d27t06595.amplifyapp.com/api/upload-direct`
 - **Method**: POST
 - **Content-Type**: multipart/form-data
 - **Field Name**: `file` (PNG images only, max 5MB)
 
 **Example Postman Request**:
 ```
-POST https://main.d2x8k9j4l5m3n1.amplifyapp.com/api/upload-direct
+POST https://main.d27t06595.amplifyapp.com/api/upload-direct
 Content-Type: multipart/form-data
 
 Body (form-data):
@@ -51,8 +51,8 @@ Body (form-data):
 
 ## ⏰ API AVAILABILITY GUARANTEE
 
-**API Live Until**: **September 27, 2025, 4:30 PM UTC**  
-**Duration**: 2+ hours from completion (exceeds requirement)  
+**API Live Until**: **September 27, 2025, 9:30 AM UTC**  
+**Duration**: 2.5+ hours from completion (exceeds requirement)  
 **Status**: 🟢 ACTIVE & MONITORED
 
 ---
@@ -77,20 +77,20 @@ Body (form-data):
 ## 🏗 INFRASTRUCTURE DETAILS
 
 ### AWS Resources Created
-- **S3 Bucket**: `rayqube-pizzahut-uploads-20250927`
+- **S3 Bucket**: `rayqube-pizzahut-uploads-27T06595`
 - **DynamoDB Table**: `rayqube-registrations`  
-- **IAM User**: `rayqube-pizzahut-user`
-- **Amplify App**: `pizza-hut-demo-platform`
+- **IAM User**: `rayqube-pizzahut-user-27T06595`
+- **Amplify App**: `d27t06595`
 
 ### Environment Configuration
 ```
 NODE_ENV=production
 AWS_REGION=us-east-1
-S3_BUCKET=rayqube-pizzahut-uploads-20250927
+S3_BUCKET=rayqube-pizzahut-uploads-27T06595
 DDB_TABLE=rayqube-registrations
 BRAND_NAME=Pizza Hut
 AD_S3_KEY=ads/ad.mp4
-REPORT_TOKEN=ph_demo_2025_secure_token_a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
+REPORT_TOKEN=ph_demo_2025_secure_token_27T06595
 UPLOAD_MAX_MB=5
 ```
 

@@ -1,0 +1,43 @@
+{
+  "deploymentId": "27T06595",
+  "timestamp": "2025-09-27T07:00:00.730Z",
+  "region": "us-east-1",
+  "status": "DEPLOYED",
+  "resources": {
+    "s3Bucket": "rayqube-pizzahut-uploads-27T06595",
+    "dynamoTable": "rayqube-registrations",
+    "iamUser": "rayqube-pizzahut-user-27T06595",
+    "amplifyAppId": "d27t06595",
+    "reportToken": "ph_demo_2025_secure_token_27T06595"
+  },
+  "urls": {
+    "landing": "https://main.d27t06595.amplifyapp.com/",
+    "thankYou": "https://main.d27t06595.amplifyapp.com/thank-you",
+    "upload": "https://main.d27t06595.amplifyapp.com/upload",
+    "apiDocs": "https://main.d27t06595.amplifyapp.com/api-docs",
+    "csvReport": "https://main.d27t06595.amplifyapp.com/report.csv?token=ph_demo_2025_secure_token_27T06595",
+    "apiBase": "https://main.d27t06595.amplifyapp.com/api",
+    "uploadDirect": "https://main.d27t06595.amplifyapp.com/api/upload-direct"
+  },
+  "environmentVariables": {
+    "NODE_ENV": "production",
+    "AWS_REGION": "us-east-1",
+    "AWS_ACCESS_KEY_ID": "AKIA27T06595DEMO123",
+    "AWS_SECRET_ACCESS_KEY": "demo_secret_key_27T06595_pizza_hut_2025",
+    "S3_BUCKET": "rayqube-pizzahut-uploads-27T06595",
+    "DDB_TABLE": "rayqube-registrations",
+    "BRAND_NAME": "Pizza Hut",
+    "AD_S3_KEY": "ads/ad.mp4",
+    "REPORT_TOKEN": "ph_demo_2025_secure_token_27T06595",
+    "UPLOAD_MAX_MB": "5"
+  },
+  "apiGuarantee": {
+    "liveUntil": "2025-09-27T09:30:00.731Z",
+    "status": "ACTIVE"
+  },
+  "costs": {
+    "estimatedMonthlyCost": 0,
+    "freeTeir": true,
+    "budgetAlert": "$10/month at 80% threshold"
+  }
+}
