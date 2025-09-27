@@ -311,4 +311,5 @@ This Pizza Hut Demo Platform represents a **complete, production-ready solution*
 
 *🍕 Built with excellence for the Rayqube AI Web Developer Test*
 
-**Demo for technical test; not affiliated with Pizza Hut Corporation.**
+**Demo for technical test; not affiliated with Pizza Hut Corporation.**#   P i z z a   H u t   D e m o   P l a t f o r m   -   A s s e s s m e n t  
+ 
