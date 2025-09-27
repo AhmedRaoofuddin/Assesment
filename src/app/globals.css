@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
+/* Pizza Hut Brand Colors & High Contrast Theme */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --primary: #dc2626;
+  --primary-hover: #b91c1c;
+  --secondary: #f3f4f6;
+  --accent: #fef2f2;
+  --border: #e5e7eb;
+  --muted: #6b7280;
+  --success: #059669;
+  --error: #dc2626;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Ensure high contrast for accessibility */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High contrast focus states */
+*:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improved button accessibility */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* High contrast links */
+a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Ensure sufficient contrast for all text */
+.text-gray-600 {
+  color: #4b5563 !important; /* WCAG AA compliant */
+}
+
+.text-gray-500 {
+  color: #374151 !important; /* WCAG AA compliant */
+}
+
+/* Toast notifications high contrast */
+.toast {
+  font-weight: 500;
+  border: 1px solid var(--border);
 }

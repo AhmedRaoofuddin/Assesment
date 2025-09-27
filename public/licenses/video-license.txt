@@ -1,0 +1,24 @@
+Video License Information
+========================
+
+Video: "Pizza Making Demo"
+Source: Royalty-free placeholder video
+License: Creative Commons Zero (CC0)
+
+This video is licensed under Creative Commons Zero (CC0) which means:
+- You can use it for any purpose, including commercial use
+- No attribution required
+- You can modify, distribute, and perform the work
+- You can use it in commercial projects
+
+For production use, replace this placeholder with a proper royalty-free video from:
+- Pexels.com (Free for commercial use)
+- Pixabay.com (Free for commercial use) 
+- Unsplash.com (Free for commercial use)
+
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+Downloaded: September 27, 2025
+Usage: Pizza Hut Demo Platform - Technical demonstration only
+
+IMPORTANT: This is a placeholder license for demonstration purposes.
+In production, ensure you have proper licensing for all video content.

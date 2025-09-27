@@ -109,39 +109,44 @@ export function RegistrationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <Input
-        label="Full Name"
-        name="name"
-        type="text"
-        value={formData.name}
-        onChange={handleChange}
-        error={errors.name}
-        placeholder="Enter your full name"
-        required
-      />
+    <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="space-y-6">
+        <Input
+          label="Full Name"
+          name="name"
+          type="text"
+          value={formData.name}
+          onChange={handleChange}
+          error={errors.name}
+          placeholder="Enter your full name"
+          required
+          aria-describedby={errors.name ? 'name-error' : undefined}
+        />
 
-      <Input
-        label="Email Address"
-        name="email"
-        type="email"
-        value={formData.email}
-        onChange={handleChange}
-        error={errors.email}
-        placeholder="Enter your email address"
-        required
-      />
+        <Input
+          label="Email Address"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          error={errors.email}
+          placeholder="Enter your email address"
+          required
+          aria-describedby={errors.email ? 'email-error' : undefined}
+        />
 
-      <Input
-        label="Phone Number"
-        name="phone"
-        type="tel"
-        value={formData.phone}
-        onChange={handleChange}
-        error={errors.phone}
-        placeholder="Enter your phone number"
-        required
-      />
+        <Input
+          label="Phone Number"
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={handleChange}
+          error={errors.phone}
+          placeholder="Enter your phone number"
+          required
+          aria-describedby={errors.phone ? 'phone-error' : undefined}
+        />
+      </div>
 
       <Button
         type="submit"
@@ -149,7 +154,15 @@ export function RegistrationForm() {
         className="w-full"
         size="lg"
       >
-        {isSubmitting ? 'Registering...' : 'Register Now'}
+        {isSubmitting ? (
+          <span className="flex items-center gap-2">
+            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+            </svg>
+            Registering...
+          </span>
+        ) : 'Register Now'}
       </Button>
     </form>
   );
