@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import { Toast } from "@/components/Toast";
 
@@ -30,12 +31,12 @@ export default function RootLayout({
                 </h1>
               </div>
               <nav className="flex space-x-4">
-                <a href="/" className="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/" className="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium">
                   Home
-                </a>
-                <a href="/upload" className="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium">
+                </Link>
+                <Link href="/upload" className="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium">
                   Upload
-                </a>
+                </Link>
               </nav>
             </div>
           </div>
