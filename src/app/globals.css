@@ -53,13 +53,31 @@ a:hover {
   color: var(--primary-hover);
 }
 
-/* Ensure sufficient contrast for all text */
+/* Ensure sufficient contrast for all text - WCAG AA compliant */
 .text-gray-600 {
-  color: #4b5563 !important; /* WCAG AA compliant */
+  color: #374151 !important; /* 4.5:1 contrast on white */
 }
 
 .text-gray-500 {
-  color: #374151 !important; /* WCAG AA compliant */
+  color: #1f2937 !important; /* 7:1 contrast on white */
+}
+
+.text-gray-700 {
+  color: #111827 !important; /* 12:1 contrast on white */
+}
+
+/* High contrast helper text */
+.text-sm {
+  color: #374151 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Enhanced focus states for accessibility */
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: 2px solid #dc2626 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
 }
 
 /* Toast notifications high contrast */

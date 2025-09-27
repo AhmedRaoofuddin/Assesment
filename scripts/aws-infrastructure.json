@@ -1,0 +1,182 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Pizza Hut Demo Platform - Complete AWS Infrastructure",
+  "Parameters": {
+    "ProjectName": {
+      "Type": "String",
+      "Default": "pizza-hut-demo",
+      "Description": "Project name for resource naming"
+    },
+    "Environment": {
+      "Type": "String",
+      "Default": "production",
+      "AllowedValues": ["production", "staging", "development"]
+    }
+  },
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": {
+          "Fn::Sub": "rayqube-pizzahut-uploads-${AWS::AccountId}-${AWS::Region}"
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "CorsConfiguration": {
+          "CorsRules": [
+            {
+              "AllowedHeaders": ["*"],
+              "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
+              "AllowedOrigins": ["*"],
+              "MaxAge": 3600
+            }
+          ]
+        },
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        },
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "DynamoDBTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": "rayqube-registrations",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "PointInTimeRecoverySpecification": {
+          "PointInTimeRecoveryEnabled": true
+        },
+        "SSESpecification": {
+          "SSEEnabled": true
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "Pizza Hut Demo"
+          },
+          {
+            "Key": "Environment",
+            "Value": {"Ref": "Environment"}
+          }
+        ]
+      }
+    },
+    "IAMUser": {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "UserName": "rayqube-pizzahut-user",
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "Pizza Hut Demo"
+          }
+        ]
+      }
+    },
+    "IAMPolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "PizzaHutDemoPolicy",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "S3BucketAccess",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": {
+                "Fn::Sub": "${S3Bucket}/*"
+              }
+            },
+            {
+              "Sid": "S3BucketList",
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket"
+              ],
+              "Resource": {
+                "Ref": "S3Bucket"
+              }
+            },
+            {
+              "Sid": "DynamoDBAccess",
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query"
+              ],
+              "Resource": {
+                "Fn::GetAtt": ["DynamoDBTable", "Arn"]
+              }
+            }
+          ]
+        },
+        "Users": [
+          {
+            "Ref": "IAMUser"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "S3BucketName": {
+      "Description": "S3 Bucket Name",
+      "Value": {
+        "Ref": "S3Bucket"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-S3Bucket"
+        }
+      }
+    },
+    "DynamoDBTableName": {
+      "Description": "DynamoDB Table Name",
+      "Value": {
+        "Ref": "DynamoDBTable"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-DynamoDBTable"
+        }
+      }
+    },
+    "IAMUserName": {
+      "Description": "IAM User Name",
+      "Value": {
+        "Ref": "IAMUser"
+      }
+    }
+  }
+}

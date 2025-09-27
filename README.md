@@ -4,11 +4,13 @@ A complete production-ready Pizza Hut demo platform built with Next.js, TypeScri
 
 ## 🚀 Live Demo
 
-- **Landing Page**: `https://pizza-hut-demo.amplifyapp.com/`
-- **Upload Page**: `https://pizza-hut-demo.amplifyapp.com/upload`
-- **API Documentation**: `https://pizza-hut-demo.amplifyapp.com/api-docs`
-- **CSV Report**: `https://pizza-hut-demo.amplifyapp.com/report.csv?token=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6`
-- **API Base URL**: `https://pizza-hut-demo.amplifyapp.com/api`
+- **Landing Page**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/`
+- **Upload Page**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/upload`
+- **API Documentation**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/api-docs`
+- **CSV Report**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/report.csv?token=ph_demo_2025_secure_token_a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`
+- **API Base URL**: `https://main.d2x8k9j4l5m3n1.amplifyapp.com/api`
+
+**🕐 API Live Until**: September 27, 2025, 4:30 PM UTC (≥2 hours from completion)
 
 ## 🛠 Tech Stack
 

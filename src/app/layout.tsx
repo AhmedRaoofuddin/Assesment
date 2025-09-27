@@ -49,7 +49,7 @@ export default function RootLayout({
         </main>
         <footer className="bg-white border-t-2 border-gray-200 py-8 px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Pizza Hut</h3>
                 <p className="text-sm text-gray-700">Premium pizza experiences and exclusive content platform.</p>
@@ -60,14 +60,6 @@ export default function RootLayout({
                   <li><Link href="/" className="text-gray-700 hover:text-red-600">Home</Link></li>
                   <li><Link href="/upload" className="text-gray-700 hover:text-red-600">Upload Photos</Link></li>
                   <li><Link href="/api-docs" className="text-gray-700 hover:text-red-600">API Documentation</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-3">Legal</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><Link href="/privacy" className="text-gray-700 hover:text-red-600">Privacy Policy</Link></li>
-                  <li><Link href="/terms" className="text-gray-700 hover:text-red-600">Terms of Service</Link></li>
-                  <li><Link href="/report.csv?token=${process.env.REPORT_TOKEN}" className="text-gray-700 hover:text-red-600">Data Report</Link></li>
                 </ul>
               </div>
               <div>
